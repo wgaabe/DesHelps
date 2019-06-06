@@ -32,7 +32,6 @@ public class cadastro extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         Estados estadoslista = new Estados();
         List <String> Estados = estadoslista.Estados();
-        
         CCadastroEstado.setModel(new DefaultComboBoxModel(Estados.toArray()));
     }
 

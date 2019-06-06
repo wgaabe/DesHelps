@@ -64,7 +64,7 @@ public static ConPooling cn = ConPooling.getInstance();
         pojo p = new pojo();
             try {
                 
-                stmt = con.prepareStatement("select * from usuarios where id="+codigo  );
+                stmt = con.prepareStatement("select * from usuarios where id="+ codigo  );
                 
                 
                 
@@ -74,7 +74,7 @@ public static ConPooling cn = ConPooling.getInstance();
                 p.setNome(rs.getString("nome"));
                 p.setEmail(rs.getString("email"));
                 p.setTelefone(rs.getString("telefone"));
-                p.setEstadoid(rs.getInt("estado"));
+                p.setEstado(rs.getString("estado"));
                 
                    // System.out.println(pojo.Email);
                 }

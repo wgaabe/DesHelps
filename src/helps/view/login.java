@@ -130,7 +130,12 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BCadastraragoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCadastraragoraActionPerformed
-        cadastro cd = new cadastro();
+        cadastro cd = null;
+        try {
+            cd = new cadastro();
+        } catch (SQLException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         cd.setVisible(true);
         dispose();
         

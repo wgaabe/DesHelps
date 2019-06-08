@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 
 public class Configuracao extends Object {
 
-    static Connection getConnection() {
+   /* static Connection getConnection() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     static void closeConnection(Connection con, PreparedStatement stmt, ResultSet rs) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+*/
 	private String driver;
 
 	private String user;

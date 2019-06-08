@@ -37,6 +37,13 @@ public class login extends javax.swing.JFrame {
         setBackground(new java.awt.Color(51, 255, 255));
         setIconImages(null);
 
+        TLoginEmail.setText("@admin.admin");
+        TLoginEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TLoginEmailActionPerformed(evt);
+            }
+        });
+
         LLogin.setText("E-mail:");
 
         LSenha.setText("Senha:");
@@ -66,6 +73,8 @@ public class login extends javax.swing.JFrame {
         });
 
         LIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/helps/icon/RQG4Ufm.png"))); // NOI18N
+
+        TLoginSenha.setText("admin");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,6 +203,10 @@ public class login extends javax.swing.JFrame {
     sobre = "Alunos = Gabriel, Lucas, Richard, Zeka." + "\n" + "Turma = Info_17" + "\n" + "Escola = Cedup" + "\n" + "2019";
     JOptionPane.showMessageDialog(null, sobre);
     }//GEN-LAST:event_BSobreActionPerformed
+
+    private void TLoginEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TLoginEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TLoginEmailActionPerformed
     
         
     public static void main(String args[]) {

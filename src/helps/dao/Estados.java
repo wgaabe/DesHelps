@@ -23,26 +23,25 @@ public class Estados {
     public static ConPooling cn = ConPooling.getInstance();
     Connection con = cn.getConnection();
     
-    public List<String> Estados() throws SQLException{
-        
-        String sqlquery = "SELECT * FROM estado";
-        
-        PreparedStatement stmt = con.prepareStatement(sqlquery);
-        
+    public ArrayList<String> Estados() throws SQLException{
+        String sqlquery = "SELECT * FROM estado";   
+        PreparedStatement stmt = con.prepareStatement(sqlquery);       
         ResultSet rs = null;
-
         rs = stmt.executeQuery(sqlquery);
-
-        List<String> lista = new ArrayList<String>();
-
-        lista.add("<Selecione Estado>");
-
+        ArrayList<String> ListarEstados = new ArrayList<String>();
+        ListarEstados.add("<Selecione Estado>");
         while(rs.next()){
-             
-            lista.add(rs.getString("nome"));
+         
+            ListarEstados.add(rs.getString("nome"));
         }
-        return lista;
+        
+        return ListarEstados;
         
     }
+        
+        
+    
+    
+    
     
 }

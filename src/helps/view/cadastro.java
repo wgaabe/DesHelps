@@ -30,8 +30,8 @@ public class cadastro extends javax.swing.JFrame {
     public cadastro() throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
-        Estados estadoslista = new Estados();
-        List <String> Estados = estadoslista.Estados();
+        Estados Listar = new Estados();
+        List <String> Estados = Listar.Estados();
         CCadastroEstado.setModel(new DefaultComboBoxModel(Estados.toArray()));
     }
 

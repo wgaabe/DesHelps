@@ -6,6 +6,7 @@
 package helps.model;
 
 import com.sun.management.jmx.Trace;
+import helps.dao.cadastrar_usuario;
 import helps.pojo.pojo;
 import javax.swing.text.MaskFormatter;
 
@@ -31,6 +32,15 @@ public class model {
         
         if(!hp.getEmail().contains(".") || !hp.getEmail().contains("@")){
             hp.setErro("Email Inválido ou Inexistente");
+            throw new IllegalArgumentException();
+        }
+
+        cadastrar_usuario c_dao = new cadastrar_usuario();
+        int n = c_dao.pesquisar_email(hp.getEmail());
+        if(n>=1)
+            
+        {
+            hp.setErro("Email já cadastrado");
             throw new IllegalArgumentException();
         }
         

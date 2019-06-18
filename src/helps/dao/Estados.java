@@ -6,6 +6,7 @@
 package helps.dao;
 
 
+import helps.pojo.estadopojo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,16 +24,19 @@ public class Estados {
     public static ConPooling cn = ConPooling.getInstance();
     Connection con = cn.getConnection();
     
-    public ArrayList<String> Estados() throws SQLException{
-        String sqlquery = "SELECT * FROM estado";   
+    public List Estados() throws SQLException{
+        String sqlquery = "SELECT * FROM estado"; 
+        
         PreparedStatement stmt = con.prepareStatement(sqlquery);       
         ResultSet rs = null;
         rs = stmt.executeQuery(sqlquery);
-        ArrayList<String> ListarEstados = new ArrayList<String>();
+        List ListarEstados = new ArrayList();
         ListarEstados.add("<Selecione Estado>");
         while(rs.next()){
-         
-            ListarEstados.add(rs.getString("nome"));
+            estadopojo ep = new estadopojo();
+            ep.setNome(rs.getString("nome"));
+            ListarEstados.add(ep);
+           //ListarEstados.add(rs.getString("nome"));
         }
         
         return ListarEstados;

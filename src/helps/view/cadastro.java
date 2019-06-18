@@ -6,7 +6,6 @@
 package helps.view;
 
 import helps.view.login;
-import helps.dao.Estados;
 import helps.dao.cadastrar_usuario;
 import helps.model.model;
 import helps.pojo.pojo;
@@ -20,6 +19,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import sun.font.CreatedFontTracker;
+import helps.dao.cadastrar_usuario;
+import java.security.NoSuchAlgorithmException;
 
 public class cadastro extends javax.swing.JFrame {
 
@@ -30,9 +31,7 @@ public class cadastro extends javax.swing.JFrame {
     public cadastro() throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
-        Estados Listar = new Estados();
-        List <String> Estados = Listar.Estados();
-        CCadastroEstado.setModel(new DefaultComboBoxModel(Estados.toArray()));
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -389,8 +388,13 @@ public class cadastro extends javax.swing.JFrame {
         c_pojo.setNome(TCadastroNome.getText());
         c_pojo.setTelefone(TCadastroTelefone.getText());
         c_pojo.setTermo(CCadastroTermo.isSelected());
-        c_pojo.setSenha(String.valueOf(TCadastroSenha.getPassword()));
-        c_pojo.setConfirmacaoSenha(String.valueOf(TCadastroSenhaConfirmacao.getPassword()));
+        try {
+            c_pojo.setSenha(cadastrar_usuario.sha1(String.valueOf(TCadastroSenha.getPassword())));
+            c_pojo.setConfirmacaoSenha(cadastrar_usuario.sha1(String.valueOf(TCadastroSenhaConfirmacao.getPassword())));
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(cadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         c_pojo.setEstado(String.valueOf(CCadastroEstado.getSelectedIndex()));
         c_pojo.setEmail(TCadastroEmail.getText());
        

@@ -10,12 +10,12 @@ import helps.dao.Verificar_Usuarios_Banco;
 import java.awt.Color;
 import helps.pojo.pojo;
 import helps.dao.Banco;
-import helps.dao.Estados;
 import helps.dao.cadastrar_usuario;
 import java.sql.SQLException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import helps.dao.Estados;
+import helps.pojo.estadopojo;
 import jdk.nashorn.internal.runtime.arrays.ArrayIndex;
 
 
@@ -39,9 +39,18 @@ public class Perfil_Usuario extends javax.swing.JFrame {
         preencher_campos(codigo);
         setLocationRelativeTo(null);
         Estados estadoslista = new Estados();
-        List<String>Estados = estadoslista.Estados();
-        CUsuarioEstado.setModel(new DefaultComboBoxModel(Estados.toArray()));
-        CUsuarioEstado.setSelectedItem(select.getEstado());
+        List Estado = estadoslista.Estados();
+        
+        /*int cont=0;
+        CUsuarioEstado.setModel(new DefaultComboBoxModel(Estado.toArray()));
+        for(int i =0;i<Estado.size();i++)
+        {
+            estadopojo ep = (estadopojo)Estado.get(i);
+            CUsuarioEstado.addItem(ep.getNome());
+            
+        }
+        /*
+        CUsuarioEstado.setSelectedItem(select.getEstado());*/
         
     }
     
@@ -53,9 +62,10 @@ public class Perfil_Usuario extends javax.swing.JFrame {
         TUsuarioNome.setText(pojo_global.getNome());
         TUsuarioSenha.setText(pojo_global.getSenha());
         TUsuarioTelefone.setText(pojo_global.getTelefone());
-        //CUsuarioEstado.setSelectedIndex(List);
-        System.out.println(pojo.estadoid);
-        System.out.println();
+        CUsuarioEstado.setSelectedIndex(pojo_global.estadoid);
+        //CUsuarioEstado.setSelectedIndex(pojo_global.getEstadoid());
+        System.out.println("id"+pojo.estadoid);
+        
         
         
         
@@ -171,7 +181,7 @@ public class Perfil_Usuario extends javax.swing.JFrame {
             }
         });
 
-        CUsuarioEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CUsuarioEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um Estado", "Acre (AC)", "Alagoas (AL)", "Amapá (AP)", "Amazonas (AM)", "Bahia (BA)", "Ceará (CE)", "Distrito Federal (DF)", "Espírito Santo (ES)", "Goiás (GO)", "Maranhão (MA)", "Mato Grosso (MT)", "Mato Grosso do Sul (MS)", "Minas Gerais (MG)", "Pará (PA) ", "Paraíba (PB)", "Paraná (PR)", "Pernambuco (PE)", "Piauí (PI)", "Rio de Janeiro (RJ)", "Rio Grande do Norte (RN)", "Rio Grande do Sul (RS)", "Rondônia (RO)", "Roraima (RR)", "Santa Catarina (SC)", "São Paulo (SP)", "Sergipe (SE)", "Tocantins (TO)" }));
         CUsuarioEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CUsuarioEstadoActionPerformed(evt);
@@ -183,21 +193,20 @@ public class Perfil_Usuario extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(0, 164, Short.MAX_VALUE)
                                 .addComponent(BVisibilidade, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
+                                        .addGap(12, 12, 12)
                                         .addComponent(BVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(56, 56, 56)
+                                        .addGap(66, 66, 66)
                                         .addComponent(CUsuarioEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,27 +215,27 @@ public class Perfil_Usuario extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
+                                .addGap(18, 18, 18)
                                 .addComponent(LEndereco)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(TEndereco))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
+                                .addGap(39, 39, 39)
                                 .addComponent(LNome)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(TUsuarioNome))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
+                                .addGap(21, 21, 21)
                                 .addComponent(LTelefone)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(TUsuarioTelefone))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
+                                .addGap(38, 38, 38)
                                 .addComponent(LEmail)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(TUsuarioEmail))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
+                                .addGap(38, 38, 38)
                                 .addComponent(LSenha)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

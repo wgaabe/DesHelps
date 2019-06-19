@@ -57,11 +57,7 @@ public class cadastrar_usuario {
             JOptionPane.showMessageDialog(null, e ); //no lugar do e da para colocar uma mensagem de erro ex "ta errado"
         }
         return n;
-        
-        
-        
-        
-        
+
     }
             
     
@@ -93,6 +89,37 @@ public class cadastrar_usuario {
         
     }   
     
+    public int alterar_usuario (pojo pj){
+ 
+        String sql = "UPDATE usuarios SET nome = ?, estado = ?, telefone = ?, email = ? ";
+        int n = 0;
+        Connection con = cn.getConnection();
+        
+        try{
+            PreparedStatement p = con.prepareStatement(sql);
+
+            //seta os valores
+            p.setString(1, pj.getNome());
+            p.setString(2, pj.getEstado());
+            p.setString(3, pj.getTelefone());
+            p.setString(4, pj.getEmail());
+
+
+            n= p.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Usuario Alterado Com Sucesso","Alteração",1);
+            
+            }catch(SQLException e){
+                cn.retConnection(con);
+                JOptionPane.showMessageDialog(null, e ); //no lugar do e da para colocar uma mensagem de erro ex "ta errado"
+            }
+            return n;
+        
+        //stmt.setInt(10, reg.getCOD_PRODUTO());
+
+        //executa o codigo
+        //stmt.execute();
+       // stmt.close();
+    }
     
     public static void main(String[] args) throws NoSuchAlgorithmException {
         System.out.println(sha1("test string to sha1")); 

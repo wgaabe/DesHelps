@@ -277,7 +277,7 @@ public class Perfil_Usuario extends javax.swing.JFrame {
             a_pojo.setEmail(TUsuarioEmail.getText());
 
             try {
-                model.verificar_campos(a_pojo);
+                model.alterar_campos(a_pojo);
                 int n = c_dao.alterar_usuario(a_pojo);
         }   catch 
                (IllegalArgumentException e) {

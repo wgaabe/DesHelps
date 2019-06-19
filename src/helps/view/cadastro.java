@@ -388,6 +388,9 @@ public class cadastro extends javax.swing.JFrame {
         c_pojo.setNome(TCadastroNome.getText());
         c_pojo.setTelefone(TCadastroTelefone.getText());
         c_pojo.setTermo(CCadastroTermo.isSelected());
+        
+        //Erro aqui vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+        
         try {
             c_pojo.setSenha(cadastrar_usuario.sha1(String.valueOf(TCadastroSenha.getPassword())));
             c_pojo.setConfirmacaoSenha(cadastrar_usuario.sha1(String.valueOf(TCadastroSenhaConfirmacao.getPassword())));

@@ -8,7 +8,7 @@ package helps.model;
 import com.sun.management.jmx.Trace;
 import helps.pojo.pojo;
 import javax.swing.text.MaskFormatter;
-
+import helps.pojo.pojo_servico;
 /**
  *
  * @author Usuario
@@ -57,6 +57,21 @@ public class model {
         
     }
     
+    public static boolean verificar_campos_servico(pojo_servico ps) throws IllegalArgumentException
+    {
+        if(ps.getServico().equals("")){
+            ps.setErro("Escolha um tipo de Serviço");
+            throw new IllegalArgumentException();
+        }
+        
+        if(ps.getFerramenta().equals("0")){
+            ps.setErro("Defina se seu serviço precise de ferramenta adicional");
+            throw new IllegalArgumentException();
+        }
+            
+        return false;                
+                       
+    }
     public void verificar_login(pojo hp) throws IllegalArgumentException
     {
         //System.out.println(""+hp.getEmail());

@@ -13,7 +13,7 @@ public class slista extends javax.swing.JFrame {
 
     /**
      * Creates new form slista
-     */
+        */
     public slista() {
         initComponents();
     }

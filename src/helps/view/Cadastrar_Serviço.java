@@ -7,7 +7,10 @@ package helps.view;
 
 import helps.view.escolha;
 import javax.swing.JOptionPane;
-
+import helps.dao.Cadastrar_Servico_Banco;
+import helps.model.model;
+import helps.pojo.pojo_servico;
+import helps.pojo.pojo;
 /**
  *
  * @author gabrielw
@@ -176,7 +179,20 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
     }//GEN-LAST:event_BLimpar1ActionPerformed
 
     private void BSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSolicitarActionPerformed
-        pegar_dados();
+       Cadastrar_Servico_Banco csb_dao = new Cadastrar_Servico_Banco();
+       pojo_servico pj_dao = new pojo_servico();
+       model md_dao = new model();
+       
+       
+       pj_dao.setServico((String) jComboboxTipoServico.getSelectedItem());
+       pj_dao.setFerramenta((String) jComboBoxSimOuNao.getSelectedItem());
+       pj_dao.setQualferramenta(TQualFerramenta.getText());
+       pj_dao.setInfoadicional(TInfoAdicional.getText());
+       
+        try {
+            
+        } catch (Exception e) {
+        }
        
     }//GEN-LAST:event_BSolicitarActionPerformed
 
@@ -189,14 +205,22 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
             
         }
         
-        public void pegar_dados()
-        {   
-            tiposervico=(String)jComboboxTipoServico.getSelectedItem();
-            ferramenta=TQualFerramenta.getText();
-            infoadicional=TInfoAdicional.getText();
+        public void solicitar_servico(){
+          Cadastrar_Servico_Banco csb = new Cadastrar_Servico_Banco();
+            model mss = new model();
+            pojo_servico pss = new pojo_servico();
+            login lss = new login();
             
-            JOptionPane.showMessageDialog(null, "Tipo de Serviço: " + tiposervico + "\n" + "Ferramenta: " + ferramenta + "\n" + "Informação Adicional: " + infoadicional + "\n");
-        }            
+            pss.setServico(String.valueOf(jComboboxTipoServico.getSelectedIndex()));
+            pss.setFerramenta(String.valueOf(jComboBoxSimOuNao.getSelectedIndex()));
+            pss.setQualferramenta(TQualFerramenta.getText());
+            pss.setInfoadicional(TInfoAdicional.getText());
+            
+            
+            
+            
+        }
+        
                 
     
     /**

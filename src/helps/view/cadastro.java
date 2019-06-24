@@ -6,7 +6,6 @@
 package helps.view;
 
 import helps.view.login;
-import helps.dao.Estados;
 import helps.dao.cadastrar_usuario;
 import helps.model.model;
 import helps.pojo.pojo;
@@ -20,6 +19,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import sun.font.CreatedFontTracker;
+import helps.dao.cadastrar_usuario;
+import java.security.NoSuchAlgorithmException;
 
 public class cadastro extends javax.swing.JFrame {
 
@@ -30,9 +31,7 @@ public class cadastro extends javax.swing.JFrame {
     public cadastro() throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
-        Estados Listar = new Estados();
-        List <String> Estados = Listar.Estados();
-        CCadastroEstado.setModel(new DefaultComboBoxModel(Estados.toArray()));
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -230,7 +229,7 @@ public class cadastro extends javax.swing.JFrame {
         TATermo.setEditable(false);
         TATermo.setColumns(20);
         TATermo.setRows(5);
-        TATermo.setText("Por meio de seus termos e condições gerais de uso e/ou de venda, um site ou um aplicativo explica aos usuários quais são as condições de utilização do serviço disponibilizado através de sua página ou programa, seja ele gratuito ou pago. Além de informar o usuário sobre a necessidade de cadastro ou sobre os elementos protegidos por direitos autorais, este instrumento determina, ainda, as responsabilidades de cada uma das partes - editor (pessoa que mantém o site ou aplicativo) e usuário -, em relação ao uso do serviço.");
+        TATermo.setText(" \t     Termos de Uso HELPS\n\t\n      Por meio de seus termos e condições gerais \nde uso e/ou de venda, um site ou um aplicativo explica aos usuários quais são as condições de utilização do serviço disponibilizado através de sua página ou programa, seja ele gratuito ou pago. Além de informar o usuário sobre a necessidade de cadastro ou sobre os elementos protegidos por direitos autorais, este instrumento determina, ainda, as responsabilidades de cada uma das partes - editor (pessoa que mantém o site ou aplicativo) e usuário -, em relação ao uso do serviço.");
         TATermo.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -389,14 +388,22 @@ public class cadastro extends javax.swing.JFrame {
         c_pojo.setNome(TCadastroNome.getText());
         c_pojo.setTelefone(TCadastroTelefone.getText());
         c_pojo.setTermo(CCadastroTermo.isSelected());
-        c_pojo.setSenha(String.valueOf(TCadastroSenha.getPassword()));
-        c_pojo.setConfirmacaoSenha(String.valueOf(TCadastroSenhaConfirmacao.getPassword()));
+        
+        //Erro aqui vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+        
+        try {
+            c_pojo.setSenha(cadastrar_usuario.sha1(String.valueOf(TCadastroSenha.getPassword())));
+            c_pojo.setConfirmacaoSenha(cadastrar_usuario.sha1(String.valueOf(TCadastroSenhaConfirmacao.getPassword())));
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(cadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         c_pojo.setEstado(String.valueOf(CCadastroEstado.getSelectedIndex()));
         c_pojo.setEmail(TCadastroEmail.getText());
        
         try {
             model.verificar_campos(c_pojo);
-            int n=c_dao.inserir_usuario(c_pojo);
+            int n = c_dao.inserir_usuario(c_pojo);
             if(n==1)
             {
                 login lg = new login(); 
@@ -480,15 +487,7 @@ public class cadastro extends javax.swing.JFrame {
             CCadastroEstado.setSelectedIndex(0);
         }  
         
-        public void pegar_dados()
-        {
-            nome=TCadastroNome.getText();
-            telefone=TCadastroTelefone.getText();
-            email=TCadastroEmail.getText();
-            senha=TCadastroSenha.getText();
-            confirmacao=TCadastroSenhaConfirmacao.getText(); 
-            JOptionPane.showMessageDialog(null, "Nome: " + nome + "\n" + "Telefone: " + telefone + "\n" + "E-mail: " + email + "\n" + "Senha: " + senha + "\n" + "confirmacao: " + confirmacao);
-        }            
+          
     /**
      * @param args the command line arguments
      */

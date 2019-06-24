@@ -160,8 +160,8 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BVoltarActionPerformed
-       escolha es = new escolha();
-       es.setVisible(true);
+       //escolha es = new escolha();
+      // es.setVisible(true);
        dispose();
                
     }//GEN-LAST:event_BVoltarActionPerformed

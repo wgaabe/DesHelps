@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import helps.dao.cadastrar_usuario;
+import java.security.NoSuchAlgorithmException;
 
 public class login extends javax.swing.JFrame {
 
@@ -48,6 +50,7 @@ public class login extends javax.swing.JFrame {
 
         LSenha.setText("Senha:");
 
+        BLoginEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/helps/icon/icons8-ok-12.png"))); // NOI18N
         BLoginEntrar.setText("Entrar");
         BLoginEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +61,7 @@ public class login extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Não possui cadastro?");
 
+        BCadastraragora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/helps/icon/icons8-mais-15.png"))); // NOI18N
         BCadastraragora.setText("Cadastrar Agora");
         BCadastraragora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,23 +79,16 @@ public class login extends javax.swing.JFrame {
         LIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/helps/icon/RQG4Ufm.png"))); // NOI18N
 
         TLoginSenha.setText("admin");
+        TLoginSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TLoginSenhaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 126, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(LIcone)
-                        .addGap(96, 96, 96))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(115, 115, 115))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(BLoginEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(127, 127, 127))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -105,11 +102,22 @@ public class login extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(TLoginSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                            .addComponent(TLoginEmail)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(BCadastraragora, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(TLoginEmail))))
+                .addContainerGap(66, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 116, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(LIcone)
+                        .addGap(96, 96, 96))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BLoginEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(115, 115, 115))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(BCadastraragora, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,13 +132,13 @@ public class login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LSenha)
                     .addComponent(TLoginSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(BLoginEntrar)
+                .addGap(32, 32, 32)
+                .addComponent(BLoginEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BCadastraragora)
-                .addGap(11, 11, 11)
+                .addComponent(BCadastraragora, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
                 .addComponent(BSobre)
                 .addGap(8, 8, 8))
         );
@@ -165,10 +173,10 @@ public class login extends javax.swing.JFrame {
         Verificar_Usuarios_Banco b = new Verificar_Usuarios_Banco();
         try {
             c_model.verificar_login(c_pojo);
-            //System.out.println("1");
-            n=b.verificar_login(""+c_pojo.getEmail(), ""+c_pojo.getSenha());
+            String senha = cadastrar_usuario.sha1(c_pojo.getSenha());
+            n=b.verificar_login(""+c_pojo.getEmail(), "" + senha );
             int codigo=0;
-            codigo=b.verificar_login_usuario_codigo(c_pojo.getEmail(), c_pojo.getSenha());
+            codigo=b.verificar_login_usuario_codigo(c_pojo.getEmail(), senha);
             if(n==true)
             {
                 escolha es = new escolha(codigo);
@@ -184,6 +192,8 @@ public class login extends javax.swing.JFrame {
         } catch (IllegalArgumentException e) {
            //(IllegalArgumentException e)
             JOptionPane.showMessageDialog(null, c_pojo.getErro()+ ", Por favor, Verifique Novamente !","Erro",2);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
                          
         
@@ -207,6 +217,10 @@ public class login extends javax.swing.JFrame {
     private void TLoginEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TLoginEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TLoginEmailActionPerformed
+
+    private void TLoginSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TLoginSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TLoginSenhaActionPerformed
     
         
     public static void main(String args[]) {

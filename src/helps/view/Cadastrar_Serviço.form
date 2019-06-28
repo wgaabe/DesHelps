@@ -103,12 +103,10 @@
       <Properties>
         <Property name="maximumRowCount" type="int" value="3"/>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
+          <StringArray count="3">
             <StringItem index="0" value="Escolha o Servi&#xe7;o"/>
-            <StringItem index="1" value="Cortar Cabelo"/>
-            <StringItem index="2" value="Ro&#xe7;ar a Grama"/>
-            <StringItem index="3" value="Trocar Pneu de Carro"/>
-            <StringItem index="4" value=" "/>
+            <StringItem index="1" value="Ro&#xe7;ar a Grama"/>
+            <StringItem index="2" value="Trocar Pneu de Carro"/>
           </StringArray>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -133,9 +131,10 @@
     <Component class="javax.swing.JComboBox" name="jComboBoxSimOuNao">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Sim "/>
-            <StringItem index="1" value="N&#xe3;o"/>
+          <StringArray count="3">
+            <StringItem index="0" value="Selecione"/>
+            <StringItem index="1" value="Sim "/>
+            <StringItem index="2" value="N&#xe3;o"/>
           </StringArray>
         </Property>
       </Properties>

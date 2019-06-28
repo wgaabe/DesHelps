@@ -50,7 +50,7 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
         jLabel1.setText("Solicitar Serviço");
 
         jComboboxTipoServico.setMaximumRowCount(3);
-        jComboboxTipoServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha o Serviço", "Cortar Cabelo", "Roçar a Grama", "Trocar Pneu de Carro", " " }));
+        jComboboxTipoServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha o Serviço", "Roçar a Grama", "Trocar Pneu de Carro" }));
         jComboboxTipoServico.setToolTipText("");
         jComboboxTipoServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +65,7 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxSimOuNao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim ", "Não" }));
+        jComboBoxSimOuNao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Sim ", "Não" }));
         jComboBoxSimOuNao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxSimOuNaoActionPerformed(evt);
@@ -157,7 +157,7 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BVoltarActionPerformed
-       escolha es = new escolha();
+       escolha es=new escolha();
        es.setVisible(true);
        dispose();
                

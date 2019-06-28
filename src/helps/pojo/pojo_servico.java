@@ -10,7 +10,23 @@ package helps.pojo;
  * @author LabInfo2
  */
 public class pojo_servico {
-    public static String servico, ferramenta, infoadicional;
+    public static String servico, ferramenta, infoadicional, qualferramenta, erro;
+
+    public static String getErro() {
+        return erro;
+    }
+
+    public static void setErro(String erro) {
+        pojo_servico.erro = erro;
+    }
+
+    public static String getQualferramenta() {
+        return qualferramenta;
+    }
+
+    public static void setQualferramenta(String qualferramenta) {
+        pojo_servico.qualferramenta = qualferramenta;
+    }
 
     public static String getServico() {
         return servico;

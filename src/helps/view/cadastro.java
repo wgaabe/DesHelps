@@ -229,7 +229,7 @@ public class cadastro extends javax.swing.JFrame {
         TATermo.setEditable(false);
         TATermo.setColumns(20);
         TATermo.setRows(5);
-        TATermo.setText("Por meio de seus termos e condições gerais de uso e/ou de venda, um site ou um aplicativo explica aos usuários quais são as condições de utilização do serviço disponibilizado através de sua página ou programa, seja ele gratuito ou pago. Além de informar o usuário sobre a necessidade de cadastro ou sobre os elementos protegidos por direitos autorais, este instrumento determina, ainda, as responsabilidades de cada uma das partes - editor (pessoa que mantém o site ou aplicativo) e usuário -, em relação ao uso do serviço.");
+        TATermo.setText(" \t     Termos de Uso HELPS\n\t\n      Por meio de seus termos e condições gerais \nde uso e/ou de venda, um site ou um aplicativo explica aos usuários quais são as condições de utilização do serviço disponibilizado através de sua página ou programa, seja ele gratuito ou pago. Além de informar o usuário sobre a necessidade de cadastro ou sobre os elementos protegidos por direitos autorais, este instrumento determina, ainda, as responsabilidades de cada uma das partes - editor (pessoa que mantém o site ou aplicativo) e usuário -, em relação ao uso do serviço.");
         TATermo.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -388,6 +388,9 @@ public class cadastro extends javax.swing.JFrame {
         c_pojo.setNome(TCadastroNome.getText());
         c_pojo.setTelefone(TCadastroTelefone.getText());
         c_pojo.setTermo(CCadastroTermo.isSelected());
+        
+        //Erro aqui vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+        
         try {
             c_pojo.setSenha(cadastrar_usuario.sha1(String.valueOf(TCadastroSenha.getPassword())));
             c_pojo.setConfirmacaoSenha(cadastrar_usuario.sha1(String.valueOf(TCadastroSenhaConfirmacao.getPassword())));
@@ -400,7 +403,7 @@ public class cadastro extends javax.swing.JFrame {
        
         try {
             model.verificar_campos(c_pojo);
-            int n=c_dao.inserir_usuario(c_pojo);
+            int n = c_dao.inserir_usuario(c_pojo);
             if(n==1)
             {
                 login lg = new login(); 
@@ -484,15 +487,7 @@ public class cadastro extends javax.swing.JFrame {
             CCadastroEstado.setSelectedIndex(0);
         }  
         
-        public void pegar_dados()
-        {
-            nome=TCadastroNome.getText();
-            telefone=TCadastroTelefone.getText();
-            email=TCadastroEmail.getText();
-            senha=TCadastroSenha.getText();
-            confirmacao=TCadastroSenhaConfirmacao.getText(); 
-            JOptionPane.showMessageDialog(null, "Nome: " + nome + "\n" + "Telefone: " + telefone + "\n" + "E-mail: " + email + "\n" + "Senha: " + senha + "\n" + "confirmacao: " + confirmacao);
-        }            
+          
     /**
      * @param args the command line arguments
      */

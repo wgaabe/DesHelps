@@ -24,7 +24,7 @@ public class ConPooling {
 	private int nuConnection;
 
 	public ConPooling() {
-		pooling = new ArrayList();
+		pooling  = new ArrayList();
 		Configuracao config = new Configuracao();
 		driver = config.getDriver();
 		user = config .getUser();
@@ -51,7 +51,7 @@ public class ConPooling {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				JOptionPane.showMessageDialog(null,
-						"Não foi possível conectar ao Banco de Dados!",
+						"Não foi possível conectar no BD!",
 						"ERRO!", JOptionPane.ERROR_MESSAGE);
 				System.exit(0);
 			}

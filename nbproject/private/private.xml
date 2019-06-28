@@ -3,12 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/LabInfo2/Desktop/GIT%20HELPS/DesHelps/src/helps/view/Cadastrar_Serviço.java</file>
             <file>file:/C:/Users/LabInfo2/Desktop/GIT%20HELPS/DesHelps/src/helps/view/escolha.java</file>
             <file>file:/C:/Users/LabInfo2/Desktop/GIT%20HELPS/DesHelps/src/helps/view/slista.java</file>
             <file>file:/C:/Users/LabInfo2/Desktop/GIT%20HELPS/DesHelps/src/helps/view/Perfil_Usuario.java</file>
             <file>file:/C:/Users/LabInfo2/Desktop/GIT%20HELPS/DesHelps/src/helps/view/login.java</file>
             <file>file:/C:/Users/LabInfo2/Desktop/GIT%20HELPS/DesHelps/src/helps/view/cadastro.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/LabInfo2/Desktop/Projeto%20git/DesHelps/src/helps/view/cadastro.java</file>
+            <file>file:/C:/Users/LabInfo2/Desktop/Projeto%20git/DesHelps/src/helps/view/Cadastrar_Serviço.java</file>
+            <file>file:/C:/Users/LabInfo2/Desktop/Projeto%20git/DesHelps/src/helps/dao/cadastrar_usuario.java</file>
+            <file>file:/C:/Users/LabInfo2/Desktop/Projeto%20git/DesHelps/src/helps/pojo/pojo.java</file>
+            <file>file:/C:/Users/LabInfo2/Desktop/Projeto%20git/DesHelps/src/helps/dao/Cadastrar_Servico_Banco.java</file>
+            <file>file:/C:/Users/LabInfo2/Desktop/Projeto%20git/DesHelps/src/helps/dao/Configuracao.java</file>
+            <file>file:/C:/Users/LabInfo2/Desktop/Projeto%20git/DesHelps/src/helps/dao/ConPooling.java</file>
+            <file>file:/C:/Users/LabInfo2/Desktop/Projeto%20git/DesHelps/src/helps/model/model.java</file>
+            <file>file:/C:/Users/LabInfo2/Desktop/Projeto%20git/DesHelps/src/helps/pojo/pojo_servico.java</file>
+=======
+            <file>file:/C:/Users/cedup/Desktop/Projetos%20GIT/DesHelps/src/helps/view/Perfil_Usuario.java</file>
+            <file>file:/C:/Users/cedup/Desktop/Projetos%20GIT/DesHelps/src/helps/dao/Configuracao.java</file>
+            <file>file:/C:/Users/cedup/Desktop/Projetos%20GIT/DesHelps/src/helps/dao/cadastrar_usuario.java</file>
+            <file>file:/C:/Users/cedup/Desktop/Projetos%20GIT/DesHelps/src/helps/view/escolha.java</file>
+            <file>file:/C:/Users/cedup/Desktop/Projetos%20GIT/DesHelps/src/helps/model/model.java</file>
+            <file>file:/C:/Users/cedup/Desktop/Projetos%20GIT/DesHelps/src/helps/view/cadastro.java</file>
+            <file>file:/C:/Users/cedup/Desktop/Projetos%20GIT/DesHelps/src/helps/dao/Estados.java</file>
+            <file>file:/C:/Users/cedup/Desktop/Projetos%20GIT/DesHelps/src/helps/pojo/estadopojo.java</file>
+>>>>>>> 717f4fe88035428a464ab3717e947305a9fe0eec
+>>>>>>> f52f656666d9e426ae5afffd0192c40fc4a76e22
         </group>
     </open-files>
 </project-private>

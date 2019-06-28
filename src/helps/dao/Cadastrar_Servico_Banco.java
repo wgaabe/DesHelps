@@ -11,23 +11,28 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import helps.pojo.pojo_servico;
+import helps.view.login;
+import helps.view.cadastro;
+import com.sun.javafx.font.Disposer;
+import com.sun.media.jfxmediaimpl.MediaDisposer;
 
 /**
  *
  * @author LabInfo2
  */
 public class Cadastrar_Servico_Banco {
-    String servico, ferramenta, infoadicional;
+    String tiposervico, ferramenta, qualferramenta, infoadicional;
     public static ConPooling cn = ConPooling.getInstance();
     
-    public int inserir_usuario(pojo_servico pj){
+    public int inserir_servico(pojo_servico pj){
         Connection con = cn.getConnection();
         int n=0;
-        String sql = "insert into servicos (servico,ferramenta,info adicional) values(?,?,?);";
+        String sql = "insert into serviços (Serviço,Ferramenta,Info Adicional, Qual Ferramenta) values(?,?,?,?);";
         try{
             PreparedStatement p = con.prepareStatement(sql);
             p.setString(1, pojo_servico.getServico());
             p.setString(2, pojo_servico.getFerramenta());
+            p.setString(1, pojo_servico.getQualferramenta());
             p.setString(3, pojo_servico.getInfoadicional());
             
             

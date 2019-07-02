@@ -51,7 +51,7 @@ public class ConPooling {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				JOptionPane.showMessageDialog(null,
-						"Não foi possível conectar no BD!",
+						"Não foi possível conectar no Banco de Dados!",
 						"ERRO!", JOptionPane.ERROR_MESSAGE);
 				System.exit(0);
 			}

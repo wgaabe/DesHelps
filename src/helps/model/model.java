@@ -66,7 +66,7 @@ public class model {
         return false;
         
     }
-    
+    /*
     public static boolean verificar_campos_servico(pojo_servico ps) throws IllegalArgumentException
     {
         if(ps.getServico().equals("")){
@@ -81,6 +81,23 @@ public class model {
             
         return false;                
                        
+    }
+    */
+    
+    public static boolean verificar_campos_servico(pojo_servico ps) throws IllegalArgumentException
+    {
+        if(ps.getServico().equals("Escolha o Serviço")){
+            ps.setErro("Selecione um tipo de Serviço ");
+            throw new IllegalArgumentException();
+        }
+        
+        if(ps.getFerramenta().toString().equals("Sim") && ps.getQualFerramenta().equals("")){
+                ps.setErro("Descreva a ferramenta escolhida ");
+            throw new IllegalArgumentException();
+        }     
+            
+            return false;
+        
     }
     public void verificar_login(pojo hp) throws IllegalArgumentException
     {

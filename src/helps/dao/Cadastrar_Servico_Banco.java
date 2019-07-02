@@ -27,13 +27,13 @@ public class Cadastrar_Servico_Banco {
     public int inserir_servico(pojo_servico pj){
         Connection con = cn.getConnection();
         int n=0;
-        String sql = "insert into serviços (Serviço,Ferramenta,Info Adicional, Qual Ferramenta) values(?,?,?,?);";
+        String sql = "insert into serviços (Servico,Ferramenta,InfoAdicional,QualFerramenta) values(?,?,?,?);";
         try{
             PreparedStatement p = con.prepareStatement(sql);
             p.setString(1, pojo_servico.getServico());
             p.setString(2, pojo_servico.getFerramenta());
-            p.setString(1, pojo_servico.getQualferramenta());
-            p.setString(3, pojo_servico.getInfoadicional());
+            p.setString(3, pojo_servico.getQualFerramenta());
+            p.setString(4, pojo_servico.getInfoAdicional());
             
             
             n=p.executeUpdate();

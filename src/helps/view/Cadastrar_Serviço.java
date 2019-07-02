@@ -25,6 +25,15 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void desabilitar_tfield(){
+            if(jComboBoxSimOuNao.getSelectedItem()== "Não"){
+                TQualFerramenta.setEditable(false);
+                TQualFerramenta.setText("");
+            }else
+                TQualFerramenta.setEditable(true);
+                    
+                      
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,7 +77,7 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxSimOuNao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Sim ", "Não" }));
+        jComboBoxSimOuNao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim ", "Não" }));
         jComboBoxSimOuNao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxSimOuNaoActionPerformed(evt);
@@ -179,25 +188,36 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
     }//GEN-LAST:event_BLimpar1ActionPerformed
 
     private void BSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSolicitarActionPerformed
-       Cadastrar_Servico_Banco csb_dao = new Cadastrar_Servico_Banco();
-       pojo_servico pj_dao = new pojo_servico();
+       Cadastrar_Servico_Banco csb = new Cadastrar_Servico_Banco();
+       pojo_servico pj = new pojo_servico();
        model md_dao = new model();
        
        
-       pj_dao.setServico((String) jComboboxTipoServico.getSelectedItem());
-       pj_dao.setFerramenta((String) jComboBoxSimOuNao.getSelectedItem());
-       pj_dao.setQualferramenta(TQualFerramenta.getText());
-       pj_dao.setInfoadicional(TInfoAdicional.getText());
+       pj.setServico((String) jComboboxTipoServico.getSelectedItem());
+       pj.setFerramenta((String) jComboBoxSimOuNao.getSelectedItem());
+       pj.setQualFerramenta(TQualFerramenta.getText());
+       pj.setInfoAdicional(TInfoAdicional.getText());
        
         try {
-            
-        } catch (Exception e) {
+            model.verificar_campos_servico(pj);
+            int n = csb.inserir_servico(pj);
+            if(n==1)
+            {
+                escolha es = new escolha();
+                es.setVisible(true);
+                this.dispose();
+            }
+        }   catch 
+               (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, pj.getErro()+ "","Erro",2);
+            desabilitar_tfield();
+                     
         }
        
     }//GEN-LAST:event_BSolicitarActionPerformed
 
     private void jComboBoxSimOuNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSimOuNaoActionPerformed
-        // TODO add your handling code here:
+        desabilitar_tfield();
     }//GEN-LAST:event_jComboBoxSimOuNaoActionPerformed
         public void Limpar_tela(){
             TQualFerramenta.setText("");
@@ -213,17 +233,13 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
             
             pss.setServico(String.valueOf(jComboboxTipoServico.getSelectedIndex()));
             pss.setFerramenta(String.valueOf(jComboBoxSimOuNao.getSelectedIndex()));
-            pss.setQualferramenta(TQualFerramenta.getText());
-            pss.setInfoadicional(TInfoAdicional.getText());
-            
-            
-            
-            
+            pss.setQualFerramenta(TQualFerramenta.getText());
+            pss.setInfoAdicional(TInfoAdicional.getText());
+                   
+                      
         }
-        
-                
-    
-    /**
+                    
+        /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {

@@ -392,8 +392,9 @@ public class cadastro extends javax.swing.JFrame {
         //Erro aqui vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
         
         try {
-            c_pojo.setSenha(cadastrar_usuario.sha1(String.valueOf(TCadastroSenha.getPassword())));
-            c_pojo.setConfirmacaoSenha(cadastrar_usuario.sha1(String.valueOf(TCadastroSenhaConfirmacao.getPassword())));
+            c_pojo.setSenhasha(cadastrar_usuario.sha1(String.valueOf(TCadastroSenha.getPassword())));
+            c_pojo.setSenha(String.valueOf(TCadastroSenha.getPassword()));
+            c_pojo.setConfirmacaoSenha(String.valueOf(TCadastroSenhaConfirmacao.getPassword()));
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(cadastro.class.getName()).log(Level.SEVERE, null, ex);
         }

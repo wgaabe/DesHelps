@@ -193,13 +193,13 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
        model md_dao = new model();
        
        
-       pj.setServico((String) jComboboxTipoServico.getSelectedItem());
-       pj.setFerramenta((String) jComboBoxSimOuNao.getSelectedItem());
+       pj.setServico((String)jComboboxTipoServico.getSelectedItem());
+       pj.setFerramenta((String)jComboBoxSimOuNao.getSelectedItem());
        pj.setQualFerramenta(TQualFerramenta.getText());
        pj.setInfoAdicional(TInfoAdicional.getText());
        
         try {
-            model.verificar_campos_servico(pj);
+            md_dao.verificar_campos_servico(pj);
             int n = csb.inserir_servico(pj);
             if(n==1)
             {
@@ -273,6 +273,7 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
   }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BLimpar1;

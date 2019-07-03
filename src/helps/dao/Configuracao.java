@@ -67,6 +67,7 @@ public class Configuracao extends Object {
 		password = "";
 		dbURL = "jdbc:mysql://localhost/helps";
 
+
 	}
 
 	public String getDriver() {

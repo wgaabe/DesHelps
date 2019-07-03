@@ -33,6 +33,10 @@ public class escolha extends javax.swing.JFrame {
         
     }
 
+    escolha() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
      
     public void carregar_dados(int codigo)
     {
@@ -69,6 +73,11 @@ public class escolha extends javax.swing.JFrame {
         });
 
         jButton2.setText("Escolher trabalho || Tela do Sharp");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         BContratar.setText("Preciso Contratar || Tela do Richard");
         BContratar.addActionListener(new java.awt.event.ActionListener() {
@@ -149,8 +158,9 @@ public class escolha extends javax.swing.JFrame {
     }//GEN-LAST:event_BVoltarActionPerformed
 
     private void BContratarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BContratarActionPerformed
-//       Cadastrar_Serviço cs = new Cadastrar_Serviço();
-  //     cs.setVisible(true);
+       Cadastrar_Serviço cs = new Cadastrar_Serviço();
+       cs.setVisible(true);
+       dispose();
     }//GEN-LAST:event_BContratarActionPerformed
 
     private void BPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BPerfilActionPerformed
@@ -163,6 +173,10 @@ public class escolha extends javax.swing.JFrame {
         p.setVisible(true);
         dispose();
     }//GEN-LAST:event_BPerfilActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

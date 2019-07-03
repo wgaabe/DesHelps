@@ -10,7 +10,31 @@ package helps.pojo;
  * @author LabInfo2
  */
 public class pojo_servico {
-    public static String servico, ferramenta, infoadicional, qualferramenta, erro;
+    public static String Servico, Ferramenta, InfoAdicional, erro, QualFerramenta;
+
+    public static String getServico() {
+        return Servico;
+    }
+
+    public static void setServico(String Servico) {
+        pojo_servico.Servico = Servico;
+    }
+
+    public static String getFerramenta() {
+        return Ferramenta;
+    }
+
+    public static void setFerramenta(String Ferramenta) {
+        pojo_servico.Ferramenta = Ferramenta;
+    }
+
+    public static String getInfoAdicional() {
+        return InfoAdicional;
+    }
+
+    public static void setInfoAdicional(String InfoAdicional) {
+        pojo_servico.InfoAdicional = InfoAdicional;
+    }
 
     public static String getErro() {
         return erro;
@@ -20,36 +44,13 @@ public class pojo_servico {
         pojo_servico.erro = erro;
     }
 
-    public static String getQualferramenta() {
-        return qualferramenta;
+    public static String getQualFerramenta() {
+        return QualFerramenta;
     }
 
-    public static void setQualferramenta(String qualferramenta) {
-        pojo_servico.qualferramenta = qualferramenta;
+    public static void setQualFerramenta(String QualFerramenta) {
+        pojo_servico.QualFerramenta = QualFerramenta;
     }
-
-    public static String getServico() {
-        return servico;
-    }
-
-    public static void setServico(String servico) {
-        pojo_servico.servico = servico;
-    }
-
-    public static String getFerramenta() {
-        return ferramenta;
-    }
-
-    public static void setFerramenta(String ferramenta) {
-        pojo_servico.ferramenta = ferramenta;
-    }
-
-    public static String getInfoadicional() {
-        return infoadicional;
-    }
-
-    public static void setInfoadicional(String infoadicional) {
-        pojo_servico.infoadicional = infoadicional;
-    }
-    
 }
+
+    

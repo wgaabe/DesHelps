@@ -70,7 +70,7 @@ public class cadastrar_usuario {
             p.setString(1, pj.getNome());
             p.setString(2, pj.getTelefone());
             p.setString(3, pj.getEmail());
-            p.setString(4, pj.getSenha());
+            p.setString(4, pj.getSenhasha());
             p.setString(5, pj.getEstado());
             
             n=p.executeUpdate();

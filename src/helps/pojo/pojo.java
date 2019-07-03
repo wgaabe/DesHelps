@@ -7,7 +7,15 @@ package helps.pojo;
  */
 public class pojo {
 
-    public static String Nome,Telefone,Email,Senha,ConfirmacaoSenha,estado,erro;
+    public static String Nome,Telefone,Email,Senha,Senhasha,ConfirmacaoSenha,estado,erro;
+
+    public static String getSenhasha() {
+        return Senhasha;
+    }
+
+    public static void setSenhasha(String Senhasha) {
+        pojo.Senhasha = Senhasha;
+    }
     public static int codigo,estadoid;
 
     public static int getEstadoid() {

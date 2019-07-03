@@ -74,7 +74,7 @@ public static ConPooling cn = ConPooling.getInstance();
                 p.setNome(rs.getString("nome"));
                 p.setEmail(rs.getString("email"));
                 p.setTelefone(rs.getString("telefone"));
-                p.setSenha(rs.getString("senha"));
+                p.setSenhasha(rs.getString("senha"));
                 p.setEstadoid(rs.getInt("estado"));
                 
                 System.out.println();

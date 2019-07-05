@@ -27,7 +27,7 @@ public class Cadastrar_Servico_Banco {
     public int inserir_servico(pojo_servico pj){
         Connection con = cn.getConnection();
         int n=0;
-        String sql = "insert into serviços (Servico,Ferramenta,InfoAdicional,QualFerramenta) values(?,?,?,?);";
+        String sql = "insert into serviços (Servico,Ferramenta,QualFerramenta,InfoAdicional) values(?,?,?,?);";
         try{
             PreparedStatement p = con.prepareStatement(sql);
             p.setString(1, pojo_servico.getServico());
@@ -40,9 +40,9 @@ public class Cadastrar_Servico_Banco {
             
             if(n==1)
             {
-                JOptionPane.showMessageDialog(null, "Serviço cadastrado com Sucesso OPA","Cadastro",1);
+                JOptionPane.showMessageDialog(null, "Serviço cadastrado com sucesso","Cadastro",1);
             }else{
-                JOptionPane.showMessageDialog(null, "Serviço NAO cadastrado ","Cadastro",1);
+                JOptionPane.showMessageDialog(null, "Serviço NÃO cadastrado ","Cadastro",1);
             }
             
             

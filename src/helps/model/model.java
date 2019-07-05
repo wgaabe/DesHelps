@@ -90,15 +90,15 @@ public class model {
             ps.setErro("Selecione um tipo de Serviço ");
             throw new IllegalArgumentException();
         }
-        System.out.println("teste 01- "+ps.getQualFerramenta());
         
-        if(ps.getFerramenta().equals("Sim") && ps.getQualFerramenta().equals("")){
+        
+        if(ps.getFerramenta().equals("0") && ps.getQualFerramenta().equals("")){
                 ps.setErro("Descreva a ferramenta escolhida ");
                 throw new IllegalArgumentException();
             
         }     
                                      
-        
+            System.out.println("teste 01- "+ps.getFerramenta());
             return false;
         
     }

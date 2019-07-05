@@ -17,7 +17,7 @@ import helps.pojo.pojo;
  */
 public class Cadastrar_Serviço extends javax.swing.JFrame {
         
-        String ferramenta, infoadicional, tiposervico;
+        String ferramenta, infoadicional, tiposervico, qualferramenta;
         int codigo;
     /**
      * Creates new form Cadastrar_Serviço
@@ -34,7 +34,7 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
        this.dispose();
     }
     public void desabilitar_tfield(){
-            if(jComboBoxSimOuNao.getSelectedItem()== "Não"){
+            if(jComboBoxSimOuNao.getSelectedItem().equals("Não")){
                 TQualFerramenta.setEditable(false);
                 TQualFerramenta.setText("");
             }else
@@ -42,6 +42,14 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
                     
                       
         }
+    public void verificação(){
+        if(pojo_servico.getFerramenta().equals("Sim")){
+            pojo_servico.setQualFerramenta("0");
+            
+            
+        }                       
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,7 +93,8 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxSimOuNao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim ", "Não" }));
+        jComboBoxSimOuNao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
+        jComboBoxSimOuNao.setSelectedItem(jComboBoxSimOuNao);
         jComboBoxSimOuNao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxSimOuNaoActionPerformed(evt);
@@ -199,16 +208,17 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
      
        
        pj.setServico(String.valueOf(jComboboxTipoServico.getSelectedItem()));
-       pj.setFerramenta(String.valueOf(jComboBoxSimOuNao.getSelectedItem()));
+       pj.setFerramenta(String.valueOf(jComboBoxSimOuNao.getSelectedIndex()));
        pj.setQualFerramenta(TQualFerramenta.getText());
        pj.setInfoAdicional(TInfoAdicional.getText());
        
         try {
             model.verificar_campos_servico(pj);
             int n = csb.inserir_servico(pj);
+            verificação();
             if(n==1)
             {
-                voltar();
+                //voltar();
             }
         }   catch 
                (IllegalArgumentException e) {
@@ -234,8 +244,8 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
             pojo_servico pss = new pojo_servico();
             login lss = new login();
             
-            pss.setServico(String.valueOf(jComboboxTipoServico.getSelectedIndex()));
-            pss.setFerramenta(String.valueOf(jComboBoxSimOuNao.getSelectedIndex()));
+            pss.setServico(String.valueOf(jComboboxTipoServico.getSelectedItem()));
+            pss.setFerramenta(String.valueOf(jComboBoxSimOuNao.getSelectedItem()));
             pss.setQualFerramenta(TQualFerramenta.getText());
             pss.setInfoAdicional(TInfoAdicional.getText());
                    

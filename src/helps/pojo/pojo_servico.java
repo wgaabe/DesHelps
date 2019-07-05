@@ -11,6 +11,15 @@ package helps.pojo;
  */
 public class pojo_servico {
     public static String Servico, Ferramenta, InfoAdicional, erro, QualFerramenta;
+    int codigoid;
+
+    public int getCodigoid() {
+        return codigoid;
+    }
+
+    public void setCodigoid(int codigoid) {
+        this.codigoid = codigoid;
+    }
 
     public static String getServico() {
         return Servico;

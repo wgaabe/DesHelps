@@ -113,4 +113,36 @@ public static ConPooling cn = ConPooling.getInstance();
         
     }   
        
+     public pojo verificar_dados_serico(int codigo){
+        
+        Connection con = cn.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int n=0;
+        pojo p = new pojo();
+            try {
+                
+                stmt = con.prepareStatement("select * from servico" );
+                
+                
+                
+                rs=stmt.executeQuery();
+                while(rs.next()){
+                p.setCodigo(rs.getInt("id"));
+                p.setNome(rs.getString("nome"));
+                p.setEmail(rs.getString("email"));
+                p.setTelefone(rs.getString("telefone"));
+                p.setSenhasha(rs.getString("senha"));
+                p.setEstadoid(rs.getInt("estado"));
+                
+                System.out.println();
+                }
+        } catch (SQLException ex) {
+                //JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        return p;
+        
+   
+}
 }

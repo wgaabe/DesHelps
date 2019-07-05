@@ -33,9 +33,7 @@ public class escolha extends javax.swing.JFrame {
         
     }
 
-    escolha() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
 
      
     public void carregar_dados(int codigo)
@@ -158,7 +156,7 @@ public class escolha extends javax.swing.JFrame {
     }//GEN-LAST:event_BVoltarActionPerformed
 
     private void BContratarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BContratarActionPerformed
-       Cadastrar_Serviço cs = new Cadastrar_Serviço();
+       Cadastrar_Serviço cs = new Cadastrar_Serviço(id);
        cs.setVisible(true);
        dispose();
     }//GEN-LAST:event_BContratarActionPerformed

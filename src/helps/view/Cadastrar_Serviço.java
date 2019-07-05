@@ -5,7 +5,7 @@
  */
 package helps.view;
 
-import helps.view.escolha;
+
 import javax.swing.JOptionPane;
 import helps.dao.Cadastrar_Servico_Banco;
 import helps.model.model;
@@ -18,13 +18,21 @@ import helps.pojo.pojo;
 public class Cadastrar_Serviço extends javax.swing.JFrame {
         
         String ferramenta, infoadicional, tiposervico;
+        int codigo;
     /**
      * Creates new form Cadastrar_Serviço
      */
-    public Cadastrar_Serviço() {
+    public Cadastrar_Serviço(int n2) {
+        codigo=n2;
         initComponents();
     }
 
+    public void voltar()
+    {
+        escolha es=new escolha(codigo);
+       es.setVisible(true);
+       this.dispose();
+    }
     public void desabilitar_tfield(){
             if(jComboBoxSimOuNao.getSelectedItem()== "Não"){
                 TQualFerramenta.setEditable(false);
@@ -169,17 +177,13 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BVoltarActionPerformed
-       escolha es=new escolha();
-       es.setVisible(true);
+        voltar();
        //escolha es = new escolha();
       // es.setVisible(true);              
     }//GEN-LAST:event_BVoltarActionPerformed
 
     private void jComboboxTipoServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboboxTipoServicoActionPerformed
-        jComboboxTipoServico.insertItemAt("", 0);
-        jComboboxTipoServico.insertItemAt("Cortar cabelo", 1);
-        jComboboxTipoServico.insertItemAt("Roçar Grama", 2);
-        jComboboxTipoServico.insertItemAt("Trocar Pneu", 3);
+      
 
     }//GEN-LAST:event_jComboboxTipoServicoActionPerformed
 
@@ -188,24 +192,23 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
     }//GEN-LAST:event_BLimpar1ActionPerformed
 
     private void BSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSolicitarActionPerformed
-       Cadastrar_Servico_Banco csb = new Cadastrar_Servico_Banco();
-       pojo_servico pj = new pojo_servico();
-       model md_dao = new model();
+      Cadastrar_Servico_Banco csb = new Cadastrar_Servico_Banco();
+      pojo_servico pj = new pojo_servico();
+        model md_dao = new model();
+        login lg = new login();
+     
        
-       
-       pj.setServico((String)jComboboxTipoServico.getSelectedItem());
-       pj.setFerramenta((String)jComboBoxSimOuNao.getSelectedItem());
+       pj.setServico(String.valueOf(jComboboxTipoServico.getSelectedItem()));
+       pj.setFerramenta(String.valueOf(jComboBoxSimOuNao.getSelectedItem()));
        pj.setQualFerramenta(TQualFerramenta.getText());
        pj.setInfoAdicional(TInfoAdicional.getText());
        
         try {
-            md_dao.verificar_campos_servico(pj);
+            model.verificar_campos_servico(pj);
             int n = csb.inserir_servico(pj);
             if(n==1)
             {
-                escolha es = new escolha();
-                es.setVisible(true);
-                this.dispose();
+                voltar();
             }
         }   catch 
                (IllegalArgumentException e) {
@@ -269,7 +272,7 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cadastrar_Serviço().setVisible(true);
+               // new Cadastrar_Serviço(id).setVisible(true);
   }
         });
     }

@@ -38,7 +38,14 @@ public class Cadastrar_Servico_Banco {
             
             n=p.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Serviço cadastrado com Sucesso","Cadastro",1);
+            if(n==1)
+            {
+                JOptionPane.showMessageDialog(null, "Serviço cadastrado com Sucesso OPA","Cadastro",1);
+            }else{
+                JOptionPane.showMessageDialog(null, "Serviço NAO cadastrado ","Cadastro",1);
+            }
+            
+            
             
             
             

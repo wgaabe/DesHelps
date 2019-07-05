@@ -15,6 +15,13 @@ import helps.view.login;
 import helps.view.cadastro;
 import com.sun.javafx.font.Disposer;
 import com.sun.media.jfxmediaimpl.MediaDisposer;
+import static helps.dao.cadastrar_usuario.cn;
+import java.sql.ResultSet;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import helps.pojo.pojo_servico;
+import java.util.ArrayList;
 
 /**
  *
@@ -35,7 +42,7 @@ public class Cadastrar_Servico_Banco {
             p.setString(3, pojo_servico.getQualFerramenta());
             p.setString(4, pojo_servico.getInfoAdicional());
             
-            
+             
             n=p.executeUpdate();
             
             if(n==1)
@@ -55,7 +62,45 @@ public class Cadastrar_Servico_Banco {
             JOptionPane.showMessageDialog(null, e ); //no lugar do e da para colocar uma mensagem de erro ex "ta errado"
         }
         return n;
+          
+    }
+    
+    public List<Cadastrar_Servico_Banco> read() {
+        
+        Connection con = cn.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        pojo_servico pj = new pojo_servico();
         
         
-    }
-    }
+        List<Cadastrar_Servico_Banco> listar_servicos = new ArrayList<>();
+        
+        try {
+            stmt =con.prepareStatement("SELECT * FROM serviços");
+            rs = stmt.executeQuery();
+            
+            while (rs.next()) {                
+                
+                Cadastrar_Servico_Banco lista_servicos = new Cadastrar_Servico_Banco();
+                
+                pj.setCodigoid(rs.getInt("Id"));
+                pj.setServico(rs.getString("Servico"));
+                pj.setFerramenta(rs.getString("Ferramenta"));
+                pj.setQualFerramenta(rs.getString("QualFerramenta"));
+                pj.setInfoAdicional(rs.getString("InfoAdicional"));
+                listar_servicos.add(lista_servicos);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Cadastrar_Servico_Banco.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+        return listar_servicos;
+     
+  }
+    
+}

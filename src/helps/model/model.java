@@ -61,30 +61,11 @@ public class model {
             throw new IllegalArgumentException();
         }
         
-       
-        System.out.println("hp.getEstado");
-        System.out.println(hp.getTelefone());
-        
         return false;
         
     }
-    /*
-    public static boolean verificar_campos_servico(pojo_servico ps) throws IllegalArgumentException
-    {
-        if(ps.getServico().equals("")){
-            ps.setErro("Escolha um tipo de Serviço");
-            throw new IllegalArgumentException();
-        }
-        
-        if(ps.getFerramenta().equals("0")){
-            ps.setErro("Defina se seu serviço precise de ferramenta adicional");
-            throw new IllegalArgumentException();
-        }
-            
-        return false;                
-                       
-    }
-    */
+   
+    
     
     public static boolean verificar_campos_servico(pojo_servico ps) throws IllegalArgumentException
     {

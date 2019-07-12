@@ -413,7 +413,7 @@ public class cadastro extends javax.swing.JFrame {
             }
         }   catch 
                (IllegalArgumentException e) {
-            JOptionPane.showMessageDialog(null, c_pojo.getErro()+ ", Por favor, Verifique Novamente !","Erro",2);
+            JOptionPane.showMessageDialog(null, c_pojo.getErro()+ "Verifique Novamente !","Erro",2);
             
         }       
        

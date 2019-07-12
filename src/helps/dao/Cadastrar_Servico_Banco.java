@@ -34,7 +34,7 @@ public class Cadastrar_Servico_Banco {
     public int inserir_servico(pojo_servico pj){
         Connection con = cn.getConnection();
         int n=0;
-        String sql = "insert into servicos (Servico,Ferramenta,QualFerramenta,InfoAdicional) values(?,?,?,?);";
+        String sql = "insert into servicos (servico,ferramenta,qualferramenta,infoadicional) values(?,?,?,?);";
         try{
             PreparedStatement p = con.prepareStatement(sql);
             p.setString(1, pj.getServico());
@@ -53,13 +53,9 @@ public class Cadastrar_Servico_Banco {
             }
             
             
-            
-            
-            
-            
         }catch(SQLException e){
             cn.retConnection(con);
-            JOptionPane.showMessageDialog(null, e ); //no lugar do e da para colocar uma mensagem de erro ex "ta errado"
+            JOptionPane.showMessageDialog(null, e );
         }
         return n;
           

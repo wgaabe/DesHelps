@@ -42,11 +42,6 @@ public class cadastrar_usuario {
                 
             PreparedStatement p = con.prepareStatement(sql);
             p.setString(1, email);
-            
-     
-            
-            System.out.println(sql);
-            
             ResultSet teste=p.executeQuery();
             teste.first();
             return teste.getInt("qtd");   

@@ -64,8 +64,8 @@ public class Configuracao extends Object {
 	public Configuracao() {
 		driver = "com.mysql.jdbc.Driver";
 		user = "root";
-		password = "";
-		dbURL = "jdbc:mysql://localhost/helps";
+		password = "usbw";
+		dbURL = "jdbc:mysql://localhost:3307/helps";
 
 
 	}

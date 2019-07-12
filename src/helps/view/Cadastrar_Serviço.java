@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import helps.dao.Cadastrar_Servico_Banco;
 import helps.model.model;
 import helps.pojo.pojo_servico;
-import helps.pojo.pojo;
 /**
  *
  * @author gabrielw
@@ -42,9 +41,9 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
                     
                       
         }
-    public void verificação(){
-        if(pojo_servico.getFerramenta().equals("Sim")){
-            pojo_servico.setQualFerramenta("0");
+    public void verificação(pojo_servico pj){
+        if(pj.getFerramenta().equals("Sim")){
+            pj.setQualFerramenta("0");
             
             
         }                       
@@ -68,9 +67,10 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         TQualFerramenta = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        TInfoAdicional = new javax.swing.JTextField();
         BSolicitar = new javax.swing.JButton();
         BLimpar1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TInfoAdicional = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,33 +123,38 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
             }
         });
 
+        TInfoAdicional.setColumns(20);
+        TInfoAdicional.setRows(5);
+        jScrollPane1.setViewportView(TInfoAdicional);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(BLimpar1)
-                                .addGap(18, 18, 18)
-                                .addComponent(BSolicitar))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel2)
-                                .addComponent(jComboboxTipoServico, 0, 322, Short.MAX_VALUE)
-                                .addComponent(jComboBoxSimOuNao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4)
-                                .addComponent(TQualFerramenta)
-                                .addComponent(TInfoAdicional)))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(BVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(97, 97, 97)
+                            .addComponent(jLabel1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(26, 26, 26)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(BLimpar1)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(BSolicitar))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jComboboxTipoServico, 0, 322, Short.MAX_VALUE)
+                                    .addComponent(jComboBoxSimOuNao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(TQualFerramenta))))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -174,8 +179,8 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TInfoAdicional, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BSolicitar)
                     .addComponent(BLimpar1))
@@ -215,7 +220,7 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
         try {
             model.verificar_campos_servico(pj);
             int n = csb.inserir_servico(pj);
-            verificação();
+            verificação(pj);
             if(n==1)
             {
                 //voltar();
@@ -292,7 +297,7 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
     private javax.swing.JButton BLimpar1;
     private javax.swing.JButton BSolicitar;
     private javax.swing.JButton BVoltar;
-    private javax.swing.JTextField TInfoAdicional;
+    private javax.swing.JTextArea TInfoAdicional;
     private javax.swing.JTextField TQualFerramenta;
     private javax.swing.JComboBox<String> jComboBoxSimOuNao;
     private javax.swing.JComboBox<String> jComboboxTipoServico;
@@ -301,5 +306,6 @@ public class Cadastrar_Serviço extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

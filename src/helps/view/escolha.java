@@ -11,6 +11,7 @@ import helps.pojo.pojo;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import helps.view.slista;
 
 
 /**
@@ -173,9 +174,10 @@ public class escolha extends javax.swing.JFrame {
     }//GEN-LAST:event_BPerfilActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
         slista sl = new slista();
-        setVisible(true);
+        sl.setVisible(true);
+        dispose();
+        
         
         
     }//GEN-LAST:event_jButton2ActionPerformed

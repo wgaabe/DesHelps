@@ -10,8 +10,46 @@ package helps.pojo;
  * @author LabInfo2
  */
 public class pojo_servico {
-    public static String Servico, Ferramenta, InfoAdicional, erro, QualFerramenta;
-    int codigoid;
+
+    public String getServico() {
+        return Servico;
+    }
+
+    public void setServico(String Servico) {
+        this.Servico = Servico;
+    }
+
+    public String getFerramenta() {
+        return Ferramenta;
+    }
+
+    public void setFerramenta(String Ferramenta) {
+        this.Ferramenta = Ferramenta;
+    }
+
+    public String getInfoAdicional() {
+        return InfoAdicional;
+    }
+
+    public void setInfoAdicional(String InfoAdicional) {
+        this.InfoAdicional = InfoAdicional;
+    }
+
+    public String getErro() {
+        return erro;
+    }
+
+    public void setErro(String erro) {
+        this.erro = erro;
+    }
+
+    public String getQualFerramenta() {
+        return QualFerramenta;
+    }
+
+    public void setQualFerramenta(String QualFerramenta) {
+        this.QualFerramenta = QualFerramenta;
+    }
 
     public int getCodigoid() {
         return codigoid;
@@ -20,46 +58,6 @@ public class pojo_servico {
     public void setCodigoid(int codigoid) {
         this.codigoid = codigoid;
     }
-
-    public static String getServico() {
-        return Servico;
-    }
-
-    public static void setServico(String Servico) {
-        pojo_servico.Servico = Servico;
-    }
-
-    public static String getFerramenta() {
-        return Ferramenta;
-    }
-
-    public static void setFerramenta(String Ferramenta) {
-        pojo_servico.Ferramenta = Ferramenta;
-    }
-
-    public static String getInfoAdicional() {
-        return InfoAdicional;
-    }
-
-    public static void setInfoAdicional(String InfoAdicional) {
-        pojo_servico.InfoAdicional = InfoAdicional;
-    }
-
-    public static String getErro() {
-        return erro;
-    }
-
-    public static void setErro(String erro) {
-        pojo_servico.erro = erro;
-    }
-
-    public static String getQualFerramenta() {
-        return QualFerramenta;
-    }
-
-    public static void setQualFerramenta(String QualFerramenta) {
-        pojo_servico.QualFerramenta = QualFerramenta;
-    }
+    public  String Servico, Ferramenta, InfoAdicional, erro, QualFerramenta;
+    int codigoid;
 }
-
-    
